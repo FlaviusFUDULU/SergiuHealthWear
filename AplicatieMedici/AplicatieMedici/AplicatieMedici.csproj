@@ -1,0 +1,833 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D5E29B85-C635-4DDD-ACDB-4A6715B94D56}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AplicatieSalariati</RootNamespace>
+    <AssemblyName>AplicatieSalariati</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DayPilot.Web.Mvc">
+      <HintPath>..\Lib\DayPilot.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis, Version=1.40.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.40.0\lib\net45\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.40.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.40.0\lib\net45\Google.Apis.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices, Version=1.40.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.40.0\lib\net45\Google.Apis.Auth.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Calendar.v3, Version=1.40.0.1590, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Calendar.v3.1.40.0.1590\lib\net45\Google.Apis.Calendar.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.40.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Core.1.40.0\lib\net45\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices, Version=1.40.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.40.0\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authorization, Version=1.1.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Authorization.1.1.3\lib\net451\Microsoft.AspNetCore.Authorization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Hosting.Abstractions, Version=1.1.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Hosting.Abstractions.1.1.3\lib\net451\Microsoft.AspNetCore.Hosting.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Hosting.Server.Abstractions, Version=1.1.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Hosting.Server.Abstractions.1.1.3\lib\net451\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http, Version=1.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.1.1.2\lib\net451\Microsoft.AspNetCore.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Abstractions, Version=1.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Abstractions.1.1.2\lib\net451\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Extensions, Version=1.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Extensions.1.1.2\lib\net451\Microsoft.AspNetCore.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Features, Version=1.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Features.1.1.2\lib\net451\Microsoft.AspNetCore.Http.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Abstractions, Version=1.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Abstractions.1.1.8\lib\net451\Microsoft.AspNetCore.Mvc.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Core, Version=1.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Core.1.1.8\lib\net451\Microsoft.AspNetCore.Mvc.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.ResponseCaching.Abstractions, Version=1.1.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.ResponseCaching.Abstractions.1.1.3\lib\net451\Microsoft.AspNetCore.ResponseCaching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Routing, Version=1.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Routing.1.1.2\lib\net451\Microsoft.AspNetCore.Routing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Routing.Abstractions, Version=1.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Routing.Abstractions.1.1.2\lib\net451\Microsoft.AspNetCore.Routing.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.WebUtilities, Version=1.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.WebUtilities.1.1.2\lib\net451\Microsoft.AspNetCore.WebUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.DotNet.InternalAbstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.DotNet.InternalAbstractions.1.0.0\lib\net451\Microsoft.DotNet.InternalAbstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DotNet.PlatformAbstractions, Version=1.1.9.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.DotNet.PlatformAbstractions.1.1.9\lib\net451\Microsoft.DotNet.PlatformAbstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=1.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.1.1.2\lib\netstandard1.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=1.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.1.1\lib\netstandard1.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyModel, Version=1.1.9.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyModel.1.1.9\lib\net451\Microsoft.Extensions.DependencyModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=1.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Abstractions.1.1.1\lib\netstandard1.0\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=1.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.1.1.2\lib\netstandard1.1\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.ObjectPool, Version=1.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.ObjectPool.1.1.1\lib\net451\Microsoft.Extensions.ObjectPool.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=1.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.1.1.2\lib\netstandard1.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.PlatformAbstractions, Version=1.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.PlatformAbstractions.1.1.0\lib\net451\Microsoft.Extensions.PlatformAbstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=1.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.1.1.1\lib\netstandard1.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers, Version=1.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.Headers.1.1.2\lib\netstandard1.1\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.3.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.3.1\lib\portable-net45+win8+wpa81\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.3.0\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.3.1\lib\netstandard1.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'">
+    <ItemGroup>
+      <RoslynFiles Include="$(CscToolPath)\*" />
+    </ItemGroup>
+    <MakeDir Directories="$(WebProjectOutputDir)\bin\roslyn" />
+    <Copy SourceFiles="@(RoslynFiles)" DestinationFolder="$(WebProjectOutputDir)\bin\roslyn" SkipUnchangedFiles="true" Retries="$(CopyRetryCount)" RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)" />
+  </Target>
+  <Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'">
+    <ItemGroup>
+      <RoslynFiles Include="$(CscToolPath)\*" />
+    </ItemGroup>
+    <MakeDir Directories="$(WebProjectOutputDir)\bin\roslyn" />
+    <Copy SourceFiles="@(RoslynFiles)" DestinationFolder="$(WebProjectOutputDir)\bin\roslyn" SkipUnchangedFiles="true" Retries="$(CopyRetryCount)" RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)" />
+  </Target>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FarmacistController.cs" />
+    <Compile Include="Controllers\MedicController.cs" />
+    <Compile Include="Controllers\EchipaController.cs" />
+    <Compile Include="Controllers\AngajatController.cs" />
+    <Compile Include="Controllers\ManagerController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PacientController.cs" />
+    <Compile Include="Controllers\_LayoutMedicController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\AdministratorController.cs" />
+    <Compile Include="Controllers\SalariatController.cs" />
+    <Compile Include="Controllers\TaxePrestabiliteController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905131537178_please medic.cs" />
+    <Compile Include="Migrations\201905131537178_please medic.Designer.cs">
+      <DependentUpon>201905131537178_please medic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905131541056_Added display name to data nasterii.cs" />
+    <Compile Include="Migrations\201905131541056_Added display name to data nasterii.Designer.cs">
+      <DependentUpon>201905131541056_Added display name to data nasterii.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905131629132_Detalii.cs" />
+    <Compile Include="Migrations\201905131629132_Detalii.Designer.cs">
+      <DependentUpon>201905131629132_Detalii.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905131708547_added istoric.cs" />
+    <Compile Include="Migrations\201905131708547_added istoric.Designer.cs">
+      <DependentUpon>201905131708547_added istoric.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905131712207_added autoincrement.cs" />
+    <Compile Include="Migrations\201905131712207_added autoincrement.Designer.cs">
+      <DependentUpon>201905131712207_added autoincrement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905171451253_date istoric.cs" />
+    <Compile Include="Migrations\201905171451253_date istoric.Designer.cs">
+      <DependentUpon>201905171451253_date istoric.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905171457103_internare.cs" />
+    <Compile Include="Migrations\201905171457103_internare.Designer.cs">
+      <DependentUpon>201905171457103_internare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905171610309_added identity to istoric.cs" />
+    <Compile Include="Migrations\201905171610309_added identity to istoric.Designer.cs">
+      <DependentUpon>201905171610309_added identity to istoric.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905171620435_Bool.cs" />
+    <Compile Include="Migrations\201905171620435_Bool.Designer.cs">
+      <DependentUpon>201905171620435_Bool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905211608462_reteta.cs" />
+    <Compile Include="Migrations\201905211608462_reteta.Designer.cs">
+      <DependentUpon>201905211608462_reteta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905211627007_reteta1.cs" />
+    <Compile Include="Migrations\201905211627007_reteta1.Designer.cs">
+      <DependentUpon>201905211627007_reteta1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905211632075_reteta-istoric.cs" />
+    <Compile Include="Migrations\201905211632075_reteta-istoric.Designer.cs">
+      <DependentUpon>201905211632075_reteta-istoric.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905211726167_reteta-istoric-noset.cs" />
+    <Compile Include="Migrations\201905211726167_reteta-istoric-noset.Designer.cs">
+      <DependentUpon>201905211726167_reteta-istoric-noset.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905211732367_reteta-istoric-noGUID.cs" />
+    <Compile Include="Migrations\201905211732367_reteta-istoric-noGUID.Designer.cs">
+      <DependentUpon>201905211732367_reteta-istoric-noGUID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905231630553_reteta update.cs" />
+    <Compile Include="Migrations\201905231630553_reteta update.Designer.cs">
+      <DependentUpon>201905231630553_reteta update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905231733391_please cascade.cs" />
+    <Compile Include="Migrations\201905231733391_please cascade.Designer.cs">
+      <DependentUpon>201905231733391_please cascade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905231739205_zile spitalizare as int.cs" />
+    <Compile Include="Migrations\201905231739205_zile spitalizare as int.Designer.cs">
+      <DependentUpon>201905231739205_zile spitalizare as int.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905311143029_retragere medicament.cs" />
+    <Compile Include="Migrations\201905311143029_retragere medicament.Designer.cs">
+      <DependentUpon>201905311143029_retragere medicament.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906011326110_added guid to login to medic.cs" />
+    <Compile Include="Migrations\201906011326110_added guid to login to medic.Designer.cs">
+      <DependentUpon>201906011326110_added guid to login to medic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906011357277_FK medic-pacient.cs" />
+    <Compile Include="Migrations\201906011357277_FK medic-pacient.Designer.cs">
+      <DependentUpon>201906011357277_FK medic-pacient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906011449382_added account guid for pacient.cs" />
+    <Compile Include="Migrations\201906011449382_added account guid for pacient.Designer.cs">
+      <DependentUpon>201906011449382_added account guid for pacient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906021241117_1to1 medic orar.cs" />
+    <Compile Include="Migrations\201906021241117_1to1 medic orar.Designer.cs">
+      <DependentUpon>201906021241117_1to1 medic orar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906021251301_Programare table relationships.cs" />
+    <Compile Include="Migrations\201906021251301_Programare table relationships.Designer.cs">
+      <DependentUpon>201906021251301_Programare table relationships.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906021256006_zi nelucratoare.cs" />
+    <Compile Include="Migrations\201906021256006_zi nelucratoare.Designer.cs">
+      <DependentUpon>201906021256006_zi nelucratoare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906021339152_Changed from date to string.cs" />
+    <Compile Include="Migrations\201906021339152_Changed from date to string.Designer.cs">
+      <DependentUpon>201906021339152_Changed from date to string.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Programare.cs" />
+    <Compile Include="Models\Orar.cs" />
+    <Compile Include="Models\Medic.cs" />
+    <Compile Include="Models\Istoric.cs" />
+    <Compile Include="Models\Pacient.cs" />
+    <Compile Include="Models\DateAngajatModel.cs" />
+    <Compile Include="Models\DateManagerModel.cs" />
+    <Compile Include="Models\DateEchipaModel.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\DateAdministratorModel.cs" />
+    <Compile Include="Models\RetetaModel.cs" />
+    <Compile Include="Models\SalariatModel.cs" />
+    <Compile Include="Models\TaxePrestabiliteModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\MedicAndPacientsViewModel.cs" />
+    <Compile Include="ViewModels\StatPlataViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\sidebar-09\css\bootstrap.min.css" />
+    <Content Include="Content\sidebar-09\css\bootstrap\mixins\_border-radius.css" />
+    <Content Include="Content\sidebar-09\css\bootstrap\mixins\_screen-reader.css" />
+    <Content Include="Content\sidebar-09\css\bootstrap\mixins\_visibility.css" />
+    <Content Include="Content\sidebar-09\css\bootstrap\utilities\_stretched-link.css" />
+    <Content Include="Content\sidebar-09\css\bootstrap\_media.css" />
+    <Content Include="Content\sidebar-09\css\style.css" />
+    <Content Include="Content\sidebar-09\images\bg_1.jpg" />
+    <Content Include="Content\sidebar-09\images\logo.jpg" />
+    <Content Include="Content\sidebar-09\index.html" />
+    <Content Include="Content\sidebar-09\js\bootstrap.min.js" />
+    <Content Include="Content\sidebar-09\js\jquery.min.js" />
+    <Content Include="Content\sidebar-09\js\main.js" />
+    <Content Include="Content\sidebar-09\js\popper.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Res\calculation.jpg" />
+    <Content Include="Res\blocks.jpg" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\DayPilot\daypilot-all.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="libman.json" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="credentials.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\sidebar-09\.DS_Store" />
+    <Content Include="Content\sidebar-09\css\.DS_Store" />
+    <Content Include="Content\sidebar-09\css\bootstrap\.DS_Store" />
+    <Content Include="Content\sidebar-09\css\bootstrap\mixins\.DS_Store" />
+    <Content Include="Content\sidebar-09\fonts\.DS_Store" />
+    <Content Include="Content\sidebar-09\images\.DS_Store" />
+    <Content Include="Content\sidebar-09\js\.DS_Store" />
+    <Content Include="Content\sidebar-09\scss\.DS_Store" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\.DS_Store" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\bootstrap-grid.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\bootstrap-reboot.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\bootstrap.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\mixins\_alert.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\mixins\_badge.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\mixins\_box-shadow.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\mixins\_breakpoints.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\mixins\_buttons.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\mixins\_caret.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\mixins\_deprecate.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\mixins\_float.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\mixins\_forms.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\mixins\_gradients.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\mixins\_grid.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\mixins\_hover.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\mixins\_image.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\mixins\_list-group.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\mixins\_lists.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\mixins\_pagination.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\mixins\_resize.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\mixins\_screen-reader.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\mixins\_size.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\mixins\_table-row.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\mixins\_text-hide.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\mixins\_text-truncate.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\mixins\_transition.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\mixins\_visibility.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\utilities\_align.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\utilities\_background.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\utilities\_borders.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\utilities\_clearfix.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\utilities\_display.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\utilities\_embed.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\utilities\_flex.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\utilities\_float.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\utilities\_overflow.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\utilities\_position.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\utilities\_screenreaders.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\utilities\_shadows.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\utilities\_sizing.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\utilities\_spacing.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\utilities\_stretched-link.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\utilities\_text.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\utilities\_visibility.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\vendor\_rfs.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_alert.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_badge.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_breadcrumb.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_button-group.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_buttons.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_card.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_carousel.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_close.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_code.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_custom-forms.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_dropdown.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_forms.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_functions.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_grid.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_images.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_input-group.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_jumbotron.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_list-group.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_media.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_mixins.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_modal.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_nav.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_navbar.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_pagination.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_popover.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_print.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_progress.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_reboot.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_root.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_spinners.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_tables.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_toasts.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_tooltip.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_transitions.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_type.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_utilities.scss" />
+    <Content Include="Content\sidebar-09\scss\bootstrap\_variables.scss" />
+    <Content Include="Content\sidebar-09\scss\style.scss" />
+    <None Include="Properties\PublishProfiles\AplicatieMedici20200404052836 - Web Deploy.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <None Include="Scripts\jquery-3.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Salariat\Create.cshtml" />
+    <Content Include="Views\Salariat\Delete.cshtml" />
+    <Content Include="Views\Salariat\Details.cshtml" />
+    <Content Include="Views\Salariat\Edit.cshtml" />
+    <Content Include="Views\Salariat\Index.cshtml" />
+    <Content Include="Views\TaxePrestabilite\Create.cshtml" />
+    <Content Include="Views\TaxePrestabilite\Delete.cshtml" />
+    <Content Include="Views\TaxePrestabilite\Details.cshtml" />
+    <Content Include="Views\TaxePrestabilite\Edit.cshtml" />
+    <Content Include="Views\TaxePrestabilite\Index.cshtml" />
+    <Content Include="Views\Report\Index.cshtml" />
+    <Content Include="Views\Report\Fluturasi.cshtml" />
+    <Content Include="Views\Shared\_LayoutLoggedOff.cshtml" />
+    <Content Include="Views\Shared\_LayoutAngajat.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdministrator.cshtml" />
+    <Content Include="Views\Shared\_LayoutSuperUser.cshtml" />
+    <Content Include="Views\Shared\_LayoutManager.cshtml" />
+    <Content Include="Views\Manager\Create.cshtml" />
+    <Content Include="Views\Manager\Delete.cshtml" />
+    <Content Include="Views\Manager\Details.cshtml" />
+    <Content Include="Views\Manager\Edit.cshtml" />
+    <Content Include="Views\Manager\Index.cshtml" />
+    <Content Include="Views\Angajat\Create.cshtml" />
+    <Content Include="Views\Angajat\Delete.cshtml" />
+    <Content Include="Views\Angajat\Details.cshtml" />
+    <Content Include="Views\Angajat\Edit.cshtml" />
+    <Content Include="Views\Angajat\Index.cshtml" />
+    <Content Include="Views\Shared\_Dizertatie\_LayoutMedic.cshtml" />
+    <Content Include="Views\Farmacist\Index.cshtml" />
+    <Content Include="Views\Medic\Index.cshtml" />
+    <Content Include="Views\Pacient\Index.cshtml" />
+    <Content Include="Views\Pacient\Create.cshtml" />
+    <Content Include="Views\Pacient\Details.cshtml" />
+    <Content Include="Views\Pacient\Edit.cshtml" />
+    <Content Include="Views\Pacient\Delete.cshtml" />
+    <Content Include="Views\Shared\_Dizertatie\_LayoutSuperUser.cshtml" />
+    <Content Include="Views\Medic\Create.cshtml" />
+    <Content Include="Views\Medic\Delete.cshtml" />
+    <Content Include="Views\Medic\Details.cshtml" />
+    <Content Include="Views\Medic\Edit.cshtml" />
+    <Content Include="Views\Pacient\Diagnostic.cshtml" />
+    <Content Include="Views\Pacient\EditIstoric.cshtml" />
+    <Content Include="Views\Pacient\Reteta.cshtml" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Pacient\DetailsReteta.cshtml" />
+    <Content Include="Views\Shared\_Dizertatie\_LayoutFarmacist.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Farmacist\Home.cshtml" />
+    <Content Include="Views\Farmacist\Reteta.cshtml" />
+    <Content Include="Views\Shared\_Dizertatie\_LayoutPacient.cshtml" />
+    <Content Include="Views\Medic\Orar.cshtml" />
+    <Content Include="Views\Medic\Programare.cshtml" />
+    <Content Include="Views\Medic\ProgramariDetails.cshtml" />
+    <Content Include="Views\Shared\Sergiu\_LayoutMedic.cshtml" />
+    <Content Include="Views\Shared\Sergiu\_LayoutPacient.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201905131537178_please medic.resx">
+      <DependentUpon>201905131537178_please medic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905131541056_Added display name to data nasterii.resx">
+      <DependentUpon>201905131541056_Added display name to data nasterii.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905131629132_Detalii.resx">
+      <DependentUpon>201905131629132_Detalii.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905131708547_added istoric.resx">
+      <DependentUpon>201905131708547_added istoric.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905131712207_added autoincrement.resx">
+      <DependentUpon>201905131712207_added autoincrement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905171451253_date istoric.resx">
+      <DependentUpon>201905171451253_date istoric.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905171457103_internare.resx">
+      <DependentUpon>201905171457103_internare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905171610309_added identity to istoric.resx">
+      <DependentUpon>201905171610309_added identity to istoric.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905171620435_Bool.resx">
+      <DependentUpon>201905171620435_Bool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905211608462_reteta.resx">
+      <DependentUpon>201905211608462_reteta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905211627007_reteta1.resx">
+      <DependentUpon>201905211627007_reteta1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905211632075_reteta-istoric.resx">
+      <DependentUpon>201905211632075_reteta-istoric.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905211726167_reteta-istoric-noset.resx">
+      <DependentUpon>201905211726167_reteta-istoric-noset.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905211732367_reteta-istoric-noGUID.resx">
+      <DependentUpon>201905211732367_reteta-istoric-noGUID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905231630553_reteta update.resx">
+      <DependentUpon>201905231630553_reteta update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905231733391_please cascade.resx">
+      <DependentUpon>201905231733391_please cascade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905231739205_zile spitalizare as int.resx">
+      <DependentUpon>201905231739205_zile spitalizare as int.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905311143029_retragere medicament.resx">
+      <DependentUpon>201905311143029_retragere medicament.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906011326110_added guid to login to medic.resx">
+      <DependentUpon>201906011326110_added guid to login to medic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906011357277_FK medic-pacient.resx">
+      <DependentUpon>201906011357277_FK medic-pacient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906011449382_added account guid for pacient.resx">
+      <DependentUpon>201906011449382_added account guid for pacient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906021241117_1to1 medic orar.resx">
+      <DependentUpon>201906021241117_1to1 medic orar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906021251301_Programare table relationships.resx">
+      <DependentUpon>201906021251301_Programare table relationships.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906021256006_zi nelucratoare.resx">
+      <DependentUpon>201906021256006_zi nelucratoare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906021339152_Changed from date to string.resx">
+      <DependentUpon>201906021339152_Changed from date to string.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55547</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:55547/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

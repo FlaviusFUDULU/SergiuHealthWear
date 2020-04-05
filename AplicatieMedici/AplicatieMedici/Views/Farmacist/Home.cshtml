@@ -1,0 +1,69 @@
+﻿@model IEnumerable<AplicatieSalariati.Models.RetetaModel>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<!-- Coded with love by Mutiullah Samim-->
+@using (Html.BeginForm("Home", "Farmacist"))
+{
+    <br><br><br><br><br><br>
+    <div class="input-group col-md-12" style="margin-top:20px; color:aqua">
+        <input name="id" type="text" class="form-control" placeholder="Caută rețetă pacient după CNP" value="@TempData["query"]" />
+        <span class="input-group-btn">
+            <button class="btn btn-default search-btn" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+        </span>
+    </div>
+    <br>
+    <br>
+    <br>
+}
+
+<div class="form-horizontal" sstyle="border:50px;
+                border-radius: 15px;">
+
+    <div class="row" style="padding-top:15px;border:50px;
+                border-radius: 15px;">
+
+        <div class="col-sm-4" style="
+                border:5px;
+                border-radius: 15px;">
+            <div class="panel panel-default">
+                <div class="panel-body" style="background-color:#a0ffb6">
+                    <span><b>Rețete ridicate cu ajutorul sistemului:</b></span>
+                    <p></p>
+                    <div style="display:inline-block; width:80%; text-align:right">
+                        @Model.Where(_ => _.Retras == true).Count()
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-body" style="background-color:#a0c5ff">
+                    <span><b>Număr total de rețete eliberate:</b></span>
+                    <p></p>
+                    <div style="display:inline-block; width:80%; text-align:right">
+                        @Model.Count()
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-body" style="background-color:#ffb3a0">
+                    <span><b>Rețete ce așteaptă ridicarea acestora</b></span>
+                    <p></p>
+                    <div style="display:inline-block; width:80%; text-align:right">
+                        @Model.Where(_ => _.Retras == false).Count()
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<br><br><br><br><br><br><br>

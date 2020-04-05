@@ -1,0 +1,50 @@
+﻿@model AplicatieSalariati.Models.TaxePrestabiliteModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TaxePrestabiliteModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Impozit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Impozit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CAS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CAS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Somaj)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Somaj)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sanatate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sanatate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

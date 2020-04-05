@@ -1,0 +1,75 @@
+﻿@model IEnumerable<AplicatieSalariati.Models.RetetaModel>
+@{
+    ViewBag.Title = "Detalii";
+}
+<h2>Rețete prescrise</h2>
+
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th bgcolor="#F4F4F4">Detalii</th>
+            <th bgcolor="#F4F4F4">Data emitere</th>
+            <th bgcolor="#F4F4F4">Data ridicare</th>
+            <th bgcolor="#F4F4F4"></th>
+        </tr>
+
+        @foreach (var reteta in Model)
+        {
+            <tr>
+                <td>
+                    @if (reteta.Medicament1 != null)
+                    {
+                        <div>
+
+                            @Html.DisplayFor(model => reteta.Medicament1) cu administrarea: @Html.DisplayFor(model => reteta.Administrare1)
+
+                        </div>
+                    }
+                    @if (reteta.Medicament2 != null)
+                    {
+                        <div>
+                            @Html.DisplayFor(model => reteta.Medicament2) cu administrarea: @Html.DisplayFor(model => reteta.Administrare2)
+                        </div>
+                    }
+                    @if (reteta.Medicament3 != null)
+                    {
+                        <div>
+                            @Html.DisplayFor(model => reteta.Medicament3) cu administrarea: @Html.DisplayFor(model => reteta.Administrare3)
+                        </div>
+                    }
+                    @if (reteta.Medicament4 != null)
+                    {
+                        <div>
+                            @Html.DisplayFor(model => reteta.Medicament4) cu administrarea: @Html.DisplayFor(model => reteta.Administrare4)
+                        </div>
+                    }
+                    @if (reteta.Medicament5 != null)
+                    {
+                        <div>
+                            @Html.DisplayFor(model => reteta.Medicament5) cu administrarea: @Html.DisplayFor(model => reteta.Administrare5)
+                        </div>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(model => reteta.DataEmitere)
+                </td>
+                <td>
+                    @if (reteta.Retras)
+                    {
+                        @Html.DisplayFor(model => reteta.DataRetragere)
+                    }
+                    </td>
+                <td style="text-align: right;">
+                    @if (!reteta.Retras)
+                    {
+                        <a type="button" href="@Url.Action("DeleteReteta", "Pacient", new { id = reteta.Id })" class="btn btn-danger" aria-label="Left Align" data-toggle="tooltip" title="Șterge rețetă">
+                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                        </a>
+                    }
+                </td>
+            </tr>
+
+        }
+
+    </table>
+</div>

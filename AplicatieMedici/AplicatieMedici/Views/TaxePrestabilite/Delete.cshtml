@@ -1,0 +1,56 @@
+﻿@model AplicatieSalariati.Models.TaxePrestabiliteModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TaxePrestabiliteModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Impozit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Impozit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CAS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CAS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Somaj)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Somaj)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sanatate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sanatate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

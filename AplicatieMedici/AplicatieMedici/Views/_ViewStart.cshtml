@@ -1,0 +1,37 @@
+﻿@{
+    string cLayout = "";
+    if (Request.IsAuthenticated)
+    {
+
+        //var roles = Roles.GetAllRoles();
+        if (HttpContext.Current.User.IsInRole("SuperUser"))
+        {
+            cLayout = "~/Views/Shared/_Dizertatie/_LayoutSuperUser.cshtml";
+        }
+        else if (HttpContext.Current.User.IsInRole("Admin"))
+        {
+            cLayout = "~/Views/Shared/_LayoutAdministrator.cshtml";
+        }
+        else if (HttpContext.Current.User.IsInRole("Manager"))
+        {
+            cLayout = "~/Views/Shared/_LayoutManager.cshtml";
+        }
+        else if (HttpContext.Current.User.IsInRole("Farmacist"))
+        {
+            cLayout = "~/Views/Shared/_Dizertatie/_LayoutFarmacist.cshtml";
+        }
+        else if (HttpContext.Current.User.IsInRole("Medic"))
+        {
+            cLayout = "~/Views/Shared/Sergiu/_LayoutMedic.cshtml";
+        }
+        else if (HttpContext.Current.User.IsInRole("Pacient"))
+        {
+            cLayout = "~/Views/Shared/Sergiu/_LayoutPacient.cshtml";
+        }
+    }
+    else
+    {
+        cLayout = "~/Views/Shared/_LayoutLoggedOff.cshtml";
+    }
+    Layout = cLayout;
+}

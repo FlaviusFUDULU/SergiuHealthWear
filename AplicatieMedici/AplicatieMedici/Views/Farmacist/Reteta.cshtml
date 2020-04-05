@@ -1,0 +1,255 @@
+﻿@model IList<AplicatieSalariati.Models.RetetaModel>
+@{
+    /**/
+
+    ViewBag.Title = "Detalii";
+}
+<h2>Rețete</h2>
+@using (Html.BeginForm())
+{
+    <div class="row">
+
+        @for (var i = 0; i < Model.Count; i++)
+        {
+            <div class="panel panel-default">
+                <div class="panel-body" style="background-color:#F4F4F4">
+                    <div style="font-weight:500; font-size:23px">Rețetă</div>
+                    @Html.HiddenFor(model => model[i].Id)
+                    @Html.HiddenFor(model => model[i].IstoricId)
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <p>
+                                <b>
+                                    Data de emitere a retetei:
+                                </b>: @Html.DisplayFor(model => model[i].DataEmitere)
+                            </p>
+                            <p>
+                        </div>
+                        @if (Model[i].Retras)
+                        {
+                            <div class="col-sm-8">
+                                <p>
+                                    <b>
+                                        Data de retragere a retetei:
+                                    </b>: @Html.DisplayFor(model => model[i].DataRetragere)
+                                </p>
+                            </div>
+                        }
+                    </div>
+
+                    @if (Model[i].Medicament1 != null)
+                    {
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <p>
+                                    <b>
+                                        Medicament:
+                                    </b>: @Html.DisplayFor(model => model[i].Medicament1)
+                                </p>
+                                <p>
+                            </div>
+                            <div class="col-sm-4">
+                                <p>
+                                    <b>
+                                        Administrare:
+                                    </b>: @Html.DisplayFor(model => model[i].Administrare1)
+                                </p>
+                            </div>
+                            @if (!Model[i].MedicamentRetras1)
+                            {
+                                <div class="col-sm-4">
+                                    <p>
+                                        <b>
+                                            Ridicat:
+                                        </b>@Html.CheckBoxFor(model => model[i].MedicamentRetras1)
+                                    </p>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="col-sm-4">
+                                    <p>
+                                        <b>
+                                            Ridicat:
+                                        </b>@Html.CheckBoxFor(model => model[i].MedicamentRetras1, new { @disabled = "disabled" })
+                                    </p>
+                                </div>
+                            }
+                        </div>
+                    }
+                    @if (Model[i].Medicament2 != null)
+                    {
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <p>
+                                    <b>
+                                        Medicament:
+                                    </b>: @Html.DisplayFor(model => model[i].Medicament2)
+                                </p>
+                                <p>
+                            </div>
+                            <div class="col-sm-4">
+                                <p>
+                                    <b>
+                                        Administrare:
+                                    </b>: @Html.DisplayFor(model => model[i].Administrare2)
+                                </p>
+                            </div>
+                            @if (!Model[i].MedicamentRetras2)
+                            {
+                                <div class="col-sm-4">
+                                    <p>
+                                        <b>
+                                            Ridicat:
+                                        </b>@Html.CheckBoxFor(model => model[i].MedicamentRetras2)
+                                    </p>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="col-sm-4">
+                                    <p>
+                                        <b>
+                                            Ridicat:
+                                        </b>@Html.CheckBoxFor(model => model[i].MedicamentRetras2, new { @disabled = "disabled" })
+                                    </p>
+                                </div>
+                            }
+                        </div>
+
+                    }
+                    @if (Model[i].Medicament3 != null)
+                    {
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <p>
+                                    <b>
+                                        Medicament:
+                                    </b>: @Html.DisplayFor(model => model[i].Medicament3)
+                                </p>
+                                <p>
+                            </div>
+                            <div class="col-sm-4">
+                                <p>
+                                    <b>
+                                        Administrare:
+                                    </b>: @Html.DisplayFor(model => model[i].Administrare3)
+                                </p>
+                            </div>
+                            @if (!Model[i].MedicamentRetras3)
+                            {
+                                <div class="col-sm-4">
+                                    <p>
+                                        <b>
+                                            Ridicat:
+                                        </b>@Html.CheckBoxFor(model => model[i].MedicamentRetras3)
+                                    </p>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="col-sm-4">
+                                    <p>
+                                        <b>
+                                            Ridicat:
+                                        </b>@Html.CheckBoxFor(model => model[i].MedicamentRetras3, new { @disabled = "disabled" })
+                                    </p>
+                                </div>
+                            }
+                        </div>
+
+                    }
+                    @if (Model[i].Medicament4 != null)
+                    {
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <p>
+                                    <b>
+                                        Medicament:
+                                    </b>: @Html.DisplayFor(model => model[i].Medicament4)
+                                </p>
+                                <p>
+                            </div>
+                            <div class="col-sm-4">
+                                <p>
+                                    <b>
+                                        Administrare:
+                                    </b>: @Html.DisplayFor(model => model[i].Administrare4)
+                                </p>
+                            </div>
+                            @if (!Model[i].MedicamentRetras4)
+                            {
+                                <div class="col-sm-4">
+                                    <p>
+                                        <b>
+                                            Ridicat:
+                                        </b>@Html.CheckBoxFor(model => model[i].MedicamentRetras4)
+                                    </p>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="col-sm-4">
+                                    <p>
+                                        <b>
+                                            Ridicat:
+                                        </b>@Html.CheckBoxFor(model => model[i].MedicamentRetras4, new { @disabled = "disabled" })
+                                    </p>
+                                </div>
+                            }
+                        </div>
+
+                    }
+                    @if (Model[i].Medicament5 != null)
+                    {
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <p>
+                                    <b>
+                                        Medicament:
+                                    </b>: @Html.DisplayFor(model => model[i].Medicament5)
+                                </p>
+                                <p>
+                            </div>
+                            <div class="col-sm-4">
+                                <p>
+                                    <b>
+                                        Administrare:
+                                    </b>: @Html.DisplayFor(model => model[i].Administrare5)
+                                </p>
+                            </div>
+                            @if (!Model[i].MedicamentRetras5)
+                            {
+                                <div class="col-sm-4">
+                                    <p>
+                                        <b>
+                                            Ridicat:
+                                        </b>@Html.CheckBoxFor(model => model[i].MedicamentRetras5)
+                                    </p>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="col-sm-4">
+                                    <p>
+                                        <b>
+                                            Ridicat:
+                                        </b>@Html.CheckBoxFor(model => model[i].MedicamentRetras5, new { @disabled = "disabled" })
+                                    </p>
+                                </div>
+                            }
+                        </div>
+                    }
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                <input type="submit" value="Eliberează Medicamente" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+

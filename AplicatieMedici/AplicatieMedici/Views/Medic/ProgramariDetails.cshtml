@@ -1,0 +1,80 @@
+﻿@model IList<AplicatieSalariati.Models.Programare>
+@{
+    /**/
+
+    ViewBag.Title = "Orar";
+}
+@using (Html.BeginForm())
+{
+
+    <h2>Programările mele</h2>
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th bgcolor="#F4F4F4" style="text-align:left">
+                    Ziua
+                </th>
+                <th bgcolor="#F4F4F4" style="text-align:center">
+                    Data
+                </th>
+                <th bgcolor="#F4F4F4" style="text-align:right">
+                    Orele
+                </th>
+            </tr>
+            <div id="accordion">
+                @for (var i = 0; i < Model.Count; i++)
+                {
+
+                    <tr data-toggle="collapse" data-target="#@Model[i].Id">
+                        <td style="text-align:left">
+                            <button class="btn btn-link collapsed" aria-expanded="false" aria-controls="collapseOne">
+                                @Model[i].StartDateTime.DayOfWeek
+                            </button>
+                        </td>
+                        <td style="text-align:center">
+                            <button class="btn btn-link collapsed" aria-expanded="false" aria-controls="collapseOne">
+                                @Model[i].StartDateTime.Date.ToString("dd/MM/yyyy")
+                            </button>
+                        </td>
+                        <td style="text-align:right">
+                            <button class="btn btn-link collapsed" aria-expanded="false" aria-controls="collapseOne">
+                                @Model[i].StartDateTime.ToString("HH:mm") - @Model[i].EndDateTime.ToString("HH:mm")
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr class="collapse" data-parent="#accordion" id="@Model[i].Id" bgcolor="#f2f7ff">
+                        <td style="text-align:left">
+
+                            <p>
+                                <b>
+                                    Pacient:
+
+                                </b>
+                                @(Model[i].Pacient.Prenume + " " + Model[i].Pacient.Nume)
+                            </p>
+
+
+                        </td>
+                        <td style="text-align:center">
+                            <p>
+                                <b>
+                                    Număr Telefon:
+
+                                </b>
+                                @(Model[i].Pacient.Numartelefon)
+                            </p>
+                        </td>
+                        <td style="text-align:right">
+                            <p>
+                                <b>
+                                    Email:
+                                </b>
+                                @(Model[i].Pacient.Email)
+                            </p>
+                        </td>
+                    </tr>
+                }
+        </table>
+    </div>
+}

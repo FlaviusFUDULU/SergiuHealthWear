@@ -1,0 +1,106 @@
+﻿@model AplicatieSalariati.ViewModels.MedicAndPacientsViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    @Styles.Render("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+    @Styles.Render("~/Content/sidebar-09")
+    @Styles.Render("~/Content/sidebar-09/css/style.css")
+    @Styles.Render("~/Content/sidebar-09/css/bottstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @using Microsoft.AspNet.Identity
+    <div class="wrapper d-flex align-items-stretch">
+        <nav id="sidebar">
+            <div class="custom-menu">
+                <button type="button" id="sidebarCollapse" class="btn btn-primary"></button>
+            </div>
+            <div class="img bg-wrap text-center py-4">
+                <img src="~/Pics/logoColor.png" />
+            </div>
+
+            <div class="img bg-wrap text-center py-4" style="background-image: url(../../../Content/sidebar-09/images/bg_1.jpg)" ;>
+                <div class="user-logo">
+                    <div class="img" style="background-image: url(../../../Uploads/@Model.Medic.CNP\.jpeg);"></div>
+
+                    @if (Request.IsAuthenticated)
+                    {
+                        <h3>@Model.Medic.Prenume @Model.Medic.Nume.ToUpper()</h3>
+                    }
+
+                </div>
+
+            </div>
+
+            <ul class="list-unstyled components mb-5">
+                <li class="active">
+                    <a href="@Url.Action("Index", "Home")">
+                        <span class="glyphicon glyphicon-user"></span>    Pacienți
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="@Url.Action("Create", "Pacient")">
+                        <span class="glyphicon glyphicon-plus"></span>    Adaugă Pacient
+                    </a>
+                </li>
+                <li>
+                    <a href="#"><span class="glyphicon glyphicon-list-alt"></span> Statiistici</a>
+                </li>
+                @*<li>
+                        <a href="#"><span class="fa fa-download mr-3 notif"><small class="d-flex align-items-center justify-content-center">5</small></span> Download</a>
+                    </li>*@
+                @if (Request.IsAuthenticated)
+                {
+                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new
+                    {
+                        id = "logoutForm"
+                    }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <li><a href="javascript:document.getElementById('logoutForm').submit()"><span class="glyphicon glyphicon-off"></span> Ieșire</a></li>
+                    }
+                }
+            </ul>
+
+        </nav>
+
+        <div id="content" class="p-4 p-md-5 pt-5">
+            @Scripts.Render("~/bundles/jqueryval")
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year</p>
+            </footer>
+        </div>
+
+        <script src="../../../Content/sidebar-09/js/jquery.min.js"></script>
+        <script src="../../../Content/sidebar-09/js/popper.js"></script>
+        <script src="../../../Content/sidebar-09/js/bootstrap.min.js"></script>
+        <script src="../../../Content/sidebar-09/js/main.js"></script>
+    </div>
+
+    @*<div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year</p>
+            </footer>
+        </div>*@
+    @Styles.Render("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+    @Styles.Render("~/Content/sidebar-09")
+    @Styles.Render("~/Content/sidebar-09/css/style.css")
+    @Styles.Render("~/Content/sidebar-09/css/bottstrap")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jqueryval")
+</body>
+</html>

@@ -1,0 +1,164 @@
+﻿@model AplicatieSalariati.ViewModels.StatPlataViewModel
+
+@{
+    ViewBag.Title = "Stat de plata";
+}
+
+<h2 class="col-md-6">Stat de plata</h2>
+<div class="col-md-6 text-right" style="margin-top:20px;">
+    <button id="buttonPrint" class="btn btn-primary search-btn" onclick="window.print()">Printează</button>
+</div>
+
+<div class="horizontal-scroll">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Salariat.Nr_Crt)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Salariat.Nume)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Salariat.Prenume)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Salariat.Functie)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Salariat.Salar_Negociat)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Salariat.Salar_Realizat)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Salariat.Vechime)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Salariat.Spor)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Salariat.Premii_Brute)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Salariat.Compensatie)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Salariat.Total_Brut)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Salariat.Brut_Impozabil)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Salariat.Impozit)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Salariat.CAS)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Salariat.Somaj)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Salariat.Sanatate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Salariat.Avans)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Salariat.Retineri)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Salariat.RestPlata)
+                    </th>
+                </tr>
+
+                @foreach (var item in Model.Salariati)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nr_Crt)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nume)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Prenume)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Functie)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Salar_Negociat)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Salar_Realizat)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Vechime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Spor)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Premii_Brute)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Compensatie)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Total_Brut)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Brut_Impozabil)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Impozit)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CAS)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Somaj)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Sanatate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Avans)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Retineri)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RestPlata)
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <td>
+                        <b>Total</b>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><b>@Model.TotalSalarNeg</b></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><b>@Model.TotalRestPlata</b></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

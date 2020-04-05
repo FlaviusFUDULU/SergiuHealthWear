@@ -1,0 +1,157 @@
+﻿@model AplicatieSalariati.Models.SalariatModel
+
+@{
+    ViewBag.Title = "Ștergere Salariat";
+}
+
+<h2>Ștergere Salariat</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nume)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prenume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prenume)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Functie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Functie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Salar_Realizat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Salar_Realizat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vechime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vechime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Spor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Spor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Premii_Brute)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Premii_Brute)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Compensatie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Compensatie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total_Brut)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total_Brut)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Brut_Impozabil)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brut_Impozabil)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Impozit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Impozit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CAS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CAS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Somaj)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Somaj)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sanatate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sanatate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Avans)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Avans)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Retineri)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Retineri)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RestPlata)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RestPlata)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-primary" /> @*|*@
+            <a type="button" value="Cancel" href="@Url.Action("Index", "Salariat", new { type = "Delete"})" class="btn btn-default">Cancel</a>
+        </div>
+    }
+</div>

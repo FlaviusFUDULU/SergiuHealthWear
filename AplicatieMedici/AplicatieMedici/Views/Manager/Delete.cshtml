@@ -1,0 +1,84 @@
+﻿@model AplicatieSalariati.Models.DateManagerModel
+
+@{
+    ViewBag.Title = "Ștergere Administrator";
+}
+
+<h2>Ștergere Manager</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CNP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CNP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nume)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prenume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prenume)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Functie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Functie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adresa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adresa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelefonPersonal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelefonPersonal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelefonServici)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelefonServici)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-primary" /> @*|*@
+            <a type="button" value="Cancel" href="@Url.Action("Index", "Manager", new { type = "Delete"})" class="btn btn-default">Cancel</a>
+        </div>
+    }
+</div>

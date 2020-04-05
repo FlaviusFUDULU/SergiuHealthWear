@@ -1,0 +1,55 @@
+﻿@using AplicatieSalariati.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+<div class="bacgroung-login">
+    <div class="center-screen">
+        <div class="logo-login">
+            <img src="../../Pics/LogoHealthWear.png" />
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <section id="loginForm">
+                    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                @Html.TextBoxFor(m => m.Username, new { @class = "form-control-login", placeholder="Utilizator"})
+                                @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control-login", placeholder = "Parola" })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        @*<div class="form-group">
+                            <div class="col-md-offset-2 col-md-6">
+                                <div class="checkbox">
+                                    @Html.CheckBoxFor(m => m.RememberMe)
+                                    @Html.LabelFor(m => m.RememberMe)
+                                </div>
+                            </div>
+                        </div>*@
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-6">
+                                <input type="submit" value="Autentificare" class="btn btn-primary-login" />
+                            </div>
+                        </div>
+                        @*<p>
+                            @Html.ActionLink("Inregistrare", "Register")
+                        </p>*@
+                    }
+                </section>
+            </div>
+        </div>
+    </div>
+
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

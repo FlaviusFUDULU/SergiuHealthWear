@@ -1,0 +1,256 @@
+﻿@model AplicatieSalariati.ViewModels.MedicAndPacientsViewModel
+@{
+    ViewBag.Title = "Detalii";
+}
+<div class="row">
+
+    <div class="col-sm-4" style="padding-top:20px">
+        <div class="panel-body" style="background-color:#F4F4F4">
+            <h2>
+                Medic de familie
+            </h2>
+            <hr />
+            <p>
+                <b>
+                    @Html.DisplayNameFor(model => model.Medic.Nume)
+                </b>: @Html.DisplayFor(model => model.Medic.Nume)
+            </p>
+            <p>
+                <b>
+                    @Html.DisplayNameFor(model => model.Medic.Prenume)
+                </b>: @Html.DisplayFor(model => model.Medic.Prenume)
+            </p>
+            <p>
+                <b>
+                    @Html.DisplayNameFor(model => model.Medic.Email)
+                </b>:  @Html.DisplayFor(model => model.Medic.Email)
+            </p>
+            <p>
+                <b>
+                    @Html.DisplayNameFor(model => model.Medic.Numartelefon)
+                </b>: @Html.DisplayFor(model => model.Medic.Numartelefon)
+            </p>
+            @*@foreach (var programare in model.Medic.Pacients.FirstOrDefault().Programari)
+                {
+                    if (programare.StartDateTime > DateTime.Now)
+                    {
+                        <p style="color:darkred"><i>Aveți o programare în data de: @programare.StartDateTime.ToString("dd/MM/yyyy") la orele: @programare.StartDateTime.ToString("HH:mm") - @programare.EndDateTime.ToString("HH:mm")</i></p>
+                    }
+                }
+                <hr style="border: 1px solid;" />
+                <h3>Orar cabinet</h3>
+
+                @if (model.Medic.OrarMedic.ZiNelucratoareLuni)
+                {
+                    <p>
+                        <b>
+                            Luni
+                        </b>: Închis
+                    </p>
+                }
+                else
+                {
+                    <p>
+                        <b>
+                            Luni
+                        </b>: @Html.DisplayFor(model => model.Medic.OrarMedic.LuniStart) - @Html.DisplayFor(model => model.Medic.OrarMedic.LuniEnd)
+                    </p>
+                }
+                @if (model.Medic.OrarMedic.ZiNelucratoareMarti)
+                {
+                    <p>
+                        <b>
+                            Marți
+                        </b>: Închis
+                    </p>
+                }
+                else
+                {
+                    <p>
+                        <b>
+                            Marți
+                        </b>: @Html.DisplayFor(model => model.Medic.OrarMedic.MartiStart) - @Html.DisplayFor(model => model.Medic.OrarMedic.MartiEnd)
+                    </p>
+                }
+                @if (model.Medic.OrarMedic.ZiNelucratoareMiercuri)
+                {
+                    <p>
+                        <b>
+                            Miercuri
+                        </b>: Închis
+                    </p>
+                }
+                else
+                {
+                    <p>
+                        <b>
+                            Miercuri
+                        </b>: @Html.DisplayFor(model => model.Medic.OrarMedic.MiercuriStart) - @Html.DisplayFor(model => model.Medic.OrarMedic.MiercuriEnd)
+                    </p>
+                }
+                @if (model.Medic.OrarMedic.ZiNelucratoareJoi)
+                {
+                    <p>
+                        <b>
+                            Joi
+                        </b>: Închis
+                    </p>
+                }
+                else
+                {
+                    <p>
+                        <b>
+                            Joi
+                        </b>: @Html.DisplayFor(model => model.Medic.OrarMedic.JoiStart) - @Html.DisplayFor(model => model.Medic.OrarMedic.JoiEnd)
+                    </p>
+                }
+                @if (model.Medic.OrarMedic.ZiNelucratoareVineri)
+                {
+                    <p>
+                        <b>
+                            Vineri
+                        </b>: Închis
+                    </p>
+                }
+                else
+                {
+                    <p>
+                        <b>
+                            Vineri
+                        </b>: @Html.DisplayFor(model => model.Medic.OrarMedic.VineriStart) - @Html.DisplayFor(model => model.Medic.OrarMedic.VineriEnd)
+                    </p>
+                }
+                @if (model.Medic.OrarMedic.ZiNelucratoareSambata)
+                {
+                    <p>
+                        <b>
+                            Sâmbătă
+                        </b>: Închis
+                    </p>
+                }
+                else
+                {
+                    <p>
+                        <b>
+                            Sâmbătă
+                        </b>: @Html.DisplayFor(model => model.Medic.OrarMedic.SambataStart) - @Html.DisplayFor(model => model.Medic.OrarMedic.SmbataEnd)
+                    </p>
+                }
+                @if (model.Medic.OrarMedic.ZiNelucratoareDuminica)
+                {
+                    <p>
+                        <b>
+                            Duminică
+                        </b>: Închis
+                    </p>
+                }
+                else
+                {
+                    <p>
+                        <b>
+                            Duminică
+                        </b>: @Html.DisplayFor(model => model.Medic.OrarMedic.DuminicaStart) - @Html.DisplayFor(model => model.Medic.OrarMedic.DuminicaEnd)
+                    </p>
+                }*@
+        </div>
+    </div>
+    @*<div class="col-sm-8">
+            <h2>Istoricul meu medical</h2>
+            <div class="table-responsive">
+                <table class="table">
+                    <tr>
+                        <th bgcolor="#F4F4F4">
+                            Diagnostic
+                        </th>
+                        <th bgcolor="#F4F4F4" style="text-align:right">
+                            Data
+                        </th>
+                    </tr>
+                    <div id="accordion">
+                        @foreach (var istoric in model.Medic.Pacients.FirstOrDefault().Istorics)
+                        {
+
+                            <tr data-toggle="collapse" data-target="#@istoric.IstoricId">
+                                <td>
+                                    <button class="btn btn-link collapsed" aria-expanded="false" aria-controls="collapseOne">
+                                        @istoric.Diagnostic
+                                    </button>
+                                </td>
+                                <td style="text-align:right">
+                                    <button class="btn btn-link collapsed" aria-expanded="false" aria-controls="collapseOne">
+                                        @istoric.Data
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr class="collapse" data-parent="#accordion" id="@istoric.IstoricId">
+                                <td>
+                                    <div class="panel panel-default">
+                                        <div class="panel-body">
+                                            <p>
+                                                <b>
+                                                    Tratament:
+
+                                                </b>
+                                                @istoric.Tratament
+                                            </p>
+
+                                            @if (@istoric.Internare)
+                                            {
+                                                <p><b>Internare: </b>Da</p>
+                                            }
+                                            else
+                                            {
+                                                <p><b>Internare: </b>Nu</p>
+                                            }
+
+                                            <p>
+                                                <b>
+                                                    Institutie medicala
+
+
+                                                </b>
+                                                : @istoric.Spital
+                                            </p>
+                                            <p>
+                                                <b>
+                                                    Sectie
+
+                                                </b>
+                                                : @istoric.Sectie
+                                            </p>
+                                            @if (@istoric.InterventieChirurgicala)
+                                            {
+                                                <p><b>Interventie chirurgicala: </b>Da</p>
+                                            }
+                                            else
+                                            {
+                                                <p><b>Interventie chirurgicala: </b>Nu</p>
+                                            }
+                                            <p>
+                                                <b>
+                                                    Detalii
+
+                                                </b>
+                                                : @istoric.DetaliiInterventie
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        }
+                </table>
+            </div>
+
+        </div>*@
+</div>
+
+@Styles.Render("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+@Styles.Render("~/Content/sidebar-09")
+@Styles.Render("~/Content/sidebar-09/css/style.css")
+@Styles.Render("~/Content/sidebar-09/css/bottstrap")
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/bundles/modernizr")

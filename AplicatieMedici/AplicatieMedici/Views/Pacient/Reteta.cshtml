@@ -1,0 +1,148 @@
+﻿@model AplicatieSalariati.Models.RetetaModel
+@{
+    ViewBag.Title = "Edit";
+}
+<h2>Prescrie Rețetă</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <div class="panel panel-default">
+        <div class="panel-body" style="background-color:#F4F4F4">
+            <div style="font-weight:500; font-size:23px">Tratament</div>
+            <div class="row" style="padding-top:15px;">
+                <div class="col-sm-6">
+                    <span>Medicament:</span>
+                    <div style="display:inline-block; width:80%">
+
+                        @Html.EditorFor(model => model.Medicament1, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Medicament1, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+                <div class="col-sm-6">
+                    <span>Administrare:</span>
+                    <div style="display:inline-block; width:80%">
+                        @Html.EditorFor(model => model.Administrare1, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Administrare1, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body" style="background-color:#F4F4F4">
+            <div style="font-weight:500; font-size:23px">Tratament</div>
+            <div class="row" style="padding-top:15px;">
+                <div class="col-sm-6">
+                    <span>Medicament:</span>
+                    <div style="display:inline-block; width:80%">
+
+                        @Html.EditorFor(model => model.Medicament2, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Medicament2, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+                <div class="col-sm-6">
+                    <span>Administrare:</span>
+                    <div style="display:inline-block; width:80%">
+                        @Html.EditorFor(model => model.Administrare2, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Administrare2, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body" style="background-color:#F4F4F4">
+            <div style="font-weight:500; font-size:23px">Tratament</div>
+            <div class="row" style="padding-top:15px;">
+                <div class="col-sm-6">
+                    <span>Medicament:</span>
+                    <div style="display:inline-block; width:80%">
+
+                        @Html.EditorFor(model => model.Medicament3, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Medicament3, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+                <div class="col-sm-6">
+                    <span>Administrare:</span>
+                    <div style="display:inline-block; width:80%">
+                        @Html.EditorFor(model => model.Administrare3, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Administrare3, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body" style="background-color:#F4F4F4">
+            <div style="font-weight:500; font-size:23px">Tratament</div>
+            <div class="row" style="padding-top:15px;">
+                <div class="col-sm-6">
+                    <span>Medicament:</span>
+                    <div style="display:inline-block; width:80%">
+
+                        @Html.EditorFor(model => model.Medicament4, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Medicament4, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+                <div class="col-sm-6">
+                    <span>Administrare:</span>
+                    <div style="display:inline-block; width:80%">
+                        @Html.EditorFor(model => model.Administrare4, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Administrare4, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body" style="background-color:#F4F4F4">
+            <div style="font-weight:500; font-size:23px">Tratament</div>
+            <div class="row" style="padding-top:15px;">
+                <div class="col-sm-6">
+                    <span>Medicament:</span>
+                    <div style="display:inline-block; width:80%">
+
+                        @Html.EditorFor(model => model.Medicament5, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Medicament5, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+                <div class="col-sm-6">
+                    <span>Administrare:</span>
+                    <div style="display:inline-block; width:80%">
+                        @Html.EditorFor(model => model.Administrare5, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Administrare5, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10" style="margin-left:0">
+            <input type="submit" value="Eliberează rețetă" class="btn btn-primary" />
+            <a type="button" value="Anulează" href="@Url.Action("Index", "Pacient", new { type = "Edit"})" class="btn btn-default">Cancel</a>
+        </div>
+    </div>
+
+
+
+}
+@*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

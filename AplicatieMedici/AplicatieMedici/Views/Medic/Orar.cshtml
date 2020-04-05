@@ -1,0 +1,303 @@
+﻿@model AplicatieSalariati.Models.Orar
+@{
+    /**/
+
+    ViewBag.Title = "Orar";
+}
+<h2>Orar cabinet</h2>
+@using (Html.BeginForm())
+{
+    <div class="row">
+
+        @Html.HiddenFor(model => model.MedicCNP)
+
+        <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    <th bgcolor="#F4F4F4">Ziua</th>
+                    <th style="width:20%" bgcolor="#F4F4F4">Ora de inceput</th>
+                    <th style="width:20%" bgcolor="#F4F4F4">Ora de inchidere</th>
+                    <th style="text-align:right" bgcolor="#F4F4F4">Zi libera</th>
+                </tr>
+
+                <tr>
+                    <td>
+                        Luni
+                    </td>
+
+
+
+
+
+                    @if (Model.ZiNelucratoareLuni)
+                    {
+                        <td>
+                            @Html.EditorFor(model => model.LuniStart, new { htmlAttributes = new { @class = "form-control", } })
+                            @Html.ValidationMessageFor(model => model.LuniStart, "", new { @class = "text-danger", disabled = "disabled" })
+                        </td>
+
+                        <td>
+                            @Html.EditorFor(model => model.LuniEnd, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.LuniEnd, "", new { @class = "text-danger", disabled = "disabled" })
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            @Html.EditorFor(model => model.LuniStart, new { htmlAttributes = new { @class = "form-control", } })
+                            @Html.ValidationMessageFor(model => model.LuniStart, "", new { @class = "text-danger" })
+                        </td>
+
+                        <td>
+                            @Html.EditorFor(model => model.LuniEnd, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.LuniEnd, "", new { @class = "text-danger" })
+                        </td>
+                    }
+                    <td style="text-align:right">
+                        <div>
+                            @Html.CheckBoxFor(model => model.ZiNelucratoareLuni)
+                        </div>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        Marti
+                    </td>
+
+                    @if (Model.ZiNelucratoareMarti)
+                    {
+                        <td>
+                            @Html.EditorFor(model => model.MartiStart, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                            @Html.ValidationMessageFor(model => model.MartiStart, "", new { @class = "text-danger" })
+                        </td>
+
+                        <td>
+                            @Html.EditorFor(model => model.MartiEnd, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                            @Html.ValidationMessageFor(model => model.MartiEnd, "", new { @class = "text-danger" })
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            @Html.EditorFor(model => model.MartiStart, new { htmlAttributes = new { @class = "form-control", } })
+                            @Html.ValidationMessageFor(model => model.MartiStart, "", new { @class = "text-danger" })
+                        </td>
+
+                        <td>
+                            @Html.EditorFor(model => model.MartiEnd, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.MartiEnd, "", new { @class = "text-danger" })
+                        </td>
+                    }
+
+
+                    <td style="text-align:right">
+                        <div>
+                            @Html.CheckBoxFor(model => model.ZiNelucratoareMarti)
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Miercuri
+                    </td>
+
+                    @if (Model.ZiNelucratoareMiercuri)
+                    {
+                        <td>
+                            @Html.EditorFor(model => model.MiercuriStart, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                            @Html.ValidationMessageFor(model => model.MiercuriStart, "", new { @class = "text-danger" })
+                        </td>
+
+                        <td>
+                            @Html.EditorFor(model => model.MiercuriEnd, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                            @Html.ValidationMessageFor(model => model.MiercuriEnd, "", new { @class = "text-danger" })
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            @Html.EditorFor(model => model.MiercuriStart, new { htmlAttributes = new { @class = "form-control", } })
+                            @Html.ValidationMessageFor(model => model.MiercuriStart, "", new { @class = "text-danger" })
+                        </td>
+
+                        <td>
+                            @Html.EditorFor(model => model.MiercuriEnd, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.MiercuriEnd, "", new { @class = "text-danger" })
+                        </td>
+                    }
+
+
+
+                    <td style="text-align:right">
+                        <div>
+                            @Html.CheckBoxFor(model => model.ZiNelucratoareMiercuri)
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Joi
+                    </td>
+
+                    @if (Model.ZiNelucratoareJoi)
+                    {
+                        <td>
+                            @Html.EditorFor(model => model.JoiStart, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                            @Html.ValidationMessageFor(model => model.JoiStart, "", new { @class = "text-danger" })
+                        </td>
+
+                        <td>
+                            @Html.EditorFor(model => model.JoiEnd, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                            @Html.ValidationMessageFor(model => model.JoiEnd, "", new { @class = "text-danger" })
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            @Html.EditorFor(model => model.JoiStart, new { htmlAttributes = new { @class = "form-control", } })
+                            @Html.ValidationMessageFor(model => model.JoiStart, "", new { @class = "text-danger" })
+                        </td>
+
+                        <td>
+                            @Html.EditorFor(model => model.JoiEnd, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.JoiEnd, "", new { @class = "text-danger" })
+                        </td>
+                    }
+
+
+                    <td style="text-align:right">
+                        <div>
+                            @Html.CheckBoxFor(model => model.ZiNelucratoareJoi)
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Vineri
+                    </td>
+
+                    @if (Model.ZiNelucratoareVineri)
+                    {
+                        <td>
+                            @Html.EditorFor(model => model.VineriStart, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                            @Html.ValidationMessageFor(model => model.VineriStart, "", new { @class = "text-danger" })
+                        </td>
+
+                        <td>
+                            @Html.EditorFor(model => model.VineriEnd, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                            @Html.ValidationMessageFor(model => model.VineriEnd, "", new { @class = "text-danger" })
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            @Html.EditorFor(model => model.VineriStart, new { htmlAttributes = new { @class = "form-control", } })
+                            @Html.ValidationMessageFor(model => model.VineriStart, "", new { @class = "text-danger" })
+                        </td>
+
+                        <td>
+                            @Html.EditorFor(model => model.VineriEnd, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.VineriEnd, "", new { @class = "text-danger" })
+                        </td>
+                    }
+
+
+                    <td style="text-align:right">
+                        <div>
+                            @Html.CheckBoxFor(model => model.ZiNelucratoareVineri)
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Sambata
+                    </td>
+
+                    @if (Model.ZiNelucratoareSambata)
+                    {
+                        <td>
+                            @Html.EditorFor(model => model.SambataStart, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                            @Html.ValidationMessageFor(model => model.SambataStart, "", new { @class = "text-danger" })
+                        </td>
+
+                        <td>
+                            @Html.EditorFor(model => model.SmbataEnd, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                            @Html.ValidationMessageFor(model => model.SmbataEnd, "", new { @class = "text-danger" })
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            @Html.EditorFor(model => model.SambataStart, new { htmlAttributes = new { @class = "form-control", } })
+                            @Html.ValidationMessageFor(model => model.SambataStart, "", new { @class = "text-danger" })
+                        </td>
+
+                        <td>
+                            @Html.EditorFor(model => model.SmbataEnd, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.SmbataEnd, "", new { @class = "text-danger" })
+                        </td>
+                    }
+
+
+                    <td style="text-align:right">
+                        <div>
+                            @Html.CheckBoxFor(model => model.ZiNelucratoareSambata)
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Duminica
+                    </td>
+
+                    @if (Model.ZiNelucratoareDuminica)
+                    {
+                        <td>
+                            @Html.EditorFor(model => model.DuminicaStart, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                            @Html.ValidationMessageFor(model => model.DuminicaStart, "", new { @class = "text-danger" })
+                        </td>
+
+                        <td>
+                            @Html.EditorFor(model => model.DuminicaEnd, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                            @Html.ValidationMessageFor(model => model.DuminicaEnd, "", new { @class = "text-danger" })
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            @Html.EditorFor(model => model.DuminicaStart, new { htmlAttributes = new { @class = "form-control", } })
+                            @Html.ValidationMessageFor(model => model.DuminicaStart, "", new { @class = "text-danger" })
+                        </td>
+
+                        <td>
+                            @Html.EditorFor(model => model.DuminicaEnd, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.DuminicaEnd, "", new { @class = "text-danger" })
+                        </td>
+                    }
+
+
+                    <td style="text-align:right">
+                        <div>
+                            @Html.CheckBoxFor(model => model.ZiNelucratoareDuminica)
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10" style="margin-left:0">
+                    <input type="submit" value="Salvează" class="btn btn-primary" />
+                    <a type="button" value="Cancel" href="@Url.Action("Index", "Home")" class="btn btn-default">Cancel</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+}

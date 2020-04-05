@@ -1,0 +1,80 @@
+﻿@model AplicatieSalariati.Models.DateManagerModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalii</h2>
+
+<div>
+    <h4>SalariatModel</h4>
+    <hr />
+    <dt>
+        @Html.DisplayNameFor(model => model.CNP)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.CNP)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Nume)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Nume)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Prenume)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Prenume)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Email)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Email)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Functie)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Functie)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Adresa)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Adresa)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.TelefonPersonal)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.TelefonPersonal)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.TelefonServici)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.TelefonServici)
+    </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CNP }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

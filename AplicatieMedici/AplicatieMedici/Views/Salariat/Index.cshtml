@@ -1,0 +1,88 @@
+﻿@model IEnumerable<AplicatieSalariati.Models.SalariatModel>
+
+@{
+    ViewBag.Title = ViewBag.Type;
+}
+
+@if (@ViewBag.Type == "Edit")
+{
+    <h2>Actualizare Date</h2>
+}
+else if (ViewBag.Type == "Delete")
+{
+    <h2>Stergere Salariati</h2>
+}
+else if (ViewBag.Type == "Calcul")
+{
+    <h2 class="col-md-6">Calculează Salarii</h2>
+    <div class="col-md-6 text-right" style="margin-top:20px;">
+        <button class="btn btn-primary" onclick="location.href='@Url.Action("CalculeazaToateSalariile", "Salariat")'">Calculează Salarii</button>
+    </div>
+}
+
+@using (Html.BeginForm("Index", "Salariat"))
+{
+    <div class="input-group col-md-12" style="margin-top:20px">
+        <input name="query" type="text" class="form-control" placeholder="Cauta" value="@TempData["query"]" />
+        <span class="input-group-btn">
+            <button class="btn btn-default search-btn" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+        </span>
+    </div>
+}
+@if (@ViewBag.Message.Length > 0)
+{
+    <div id="message">@ViewBag.Message</div>
+}
+<div class="col-md-12">
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nume)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Prenume)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Functie)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nume)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Prenume)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Functie)
+                    </td>
+                    <td class="text-right">
+                        @if (ViewBag.Type == "Edit")
+                        {
+                            <a type="button" href="@Url.Action("Edit", "Salariat", new { id = item.Nr_Crt})" class="btn btn-primary" aria-label="Left Align">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                            </a>
+                        }
+                        @if (ViewBag.Type == "Delete")
+                        {
+                            <a type="button" href="@Url.Action("Delete", "Salariat", new { id = item.Nr_Crt})" class="btn btn-warning" aria-label="Left Align">
+                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                            </a>
+                        }
+                        @if (ViewBag.Type == "Calcul")
+                        {
+                            <a type="button" href="@Url.Action("CalculeazaSalariu", "Salariat", new { id = item.Nr_Crt})" class="btn btn-default" aria-label="Left Align">
+                                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                            </a>
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
