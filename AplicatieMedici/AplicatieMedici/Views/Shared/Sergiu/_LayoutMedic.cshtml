@@ -53,11 +53,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#"><span class="glyphicon glyphicon-list-alt"></span> Statiistici</a>
+                    <a href="@Url.Action("Stats", "Pacient")">
+                        <span class="glyphicon glyphicon-list-alt"></span>    Statistici
+                    </a>
                 </li>
                 @*<li>
-                        <a href="#"><span class="fa fa-download mr-3 notif"><small class="d-flex align-items-center justify-content-center">5</small></span> Download</a>
-                    </li>*@
+                    <a href="#"><span class="fa fa-download mr-3 notif"><small class="d-flex align-items-center justify-content-center">5</small></span> Download</a>
+                </li>*@
                 @if (Request.IsAuthenticated)
                 {
                     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new
@@ -76,16 +78,18 @@
         <div id="content" class="p-4 p-md-5 pt-5">
             @Scripts.Render("~/bundles/jqueryval")
             @RenderBody()
-            <hr />
+            @*<hr />
             <footer>
                 <p>&copy; @DateTime.Now.Year</p>
-            </footer>
+            </footer>*@
         </div>
 
         <script src="../../../Content/sidebar-09/js/jquery.min.js"></script>
         <script src="../../../Content/sidebar-09/js/popper.js"></script>
         <script src="../../../Content/sidebar-09/js/bootstrap.min.js"></script>
         <script src="../../../Content/sidebar-09/js/main.js"></script>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
     </div>
 
     @*<div class="container body-content">

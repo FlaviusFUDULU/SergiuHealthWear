@@ -1597,6 +1597,13 @@ th {
     text-align: left;
 }
 
+.charts-ff {
+    height: 370px;
+    width: 100%;
+    margin-left: 10px
+}
+
+
 .table {
     width: 100%;
     margin-bottom: 20px;
@@ -2295,6 +2302,13 @@ textarea.input-lg {
     height: 45px;
     border-radius: 0;
 }
+
+.charts-ff {
+    height: 370px;
+    width: 100%;
+    margin-left: 10px
+}
+
 
 .btn-primary:hover,
 .btn-primary-login:hover,

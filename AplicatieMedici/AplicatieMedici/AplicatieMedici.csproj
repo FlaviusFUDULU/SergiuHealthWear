@@ -177,6 +177,7 @@
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Text.Encodings.Web, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Text.Encodings.Web.4.3.1\lib\netstandard1.0\System.Text.Encodings.Web.dll</HintPath>
     </Reference>
@@ -302,6 +303,7 @@
     <Compile Include="Controllers\ManagerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\GraficeController.cs" />
     <Compile Include="Controllers\PacientController.cs" />
     <Compile Include="Controllers\_LayoutMedicController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
@@ -413,6 +415,8 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DataPoint2.cs" />
+    <Compile Include="Models\DataPoint.cs" />
     <Compile Include="Models\Programare.cs" />
     <Compile Include="Models\Orar.cs" />
     <Compile Include="Models\Medic.cs" />
@@ -697,6 +701,10 @@
     <Content Include="Views\Medic\ProgramariDetails.cshtml" />
     <Content Include="Views\Shared\Sergiu\_LayoutMedic.cshtml" />
     <Content Include="Views\Shared\Sergiu\_LayoutPacient.cshtml" />
+    <Content Include="Views\Grafice\Test.cshtml" />
+    <Content Include="Views\Pacient\Test.cshtml" />
+    <Content Include="Views\Pacient\Stats.cshtml" />
+    <Content Include="Views\Pacient\MyStats.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -48,16 +48,18 @@
                     </a>
                 </li>
                 @*<li class="active">
-                    <a href="@Url.Action("Create", "Pacient")">
-                        <span class="glyphicon glyphicon-plus"></span>    Adaugă Pacient
-                    </a>
-                </li>*@
+            <a href="@Url.Action("Create", "Pacient")">
+                <span class="glyphicon glyphicon-plus"></span>    Adaugă Pacient
+            </a>
+        </li>*@
                 <li>
-                    <a href="#"><span class="glyphicon glyphicon-list-alt"></span> Statiisticile Mele</a>
+                    <a href="@Url.Action("MyStats", "Pacient")">
+                        <span class="glyphicon glyphicon-list-alt"></span>    Statisticile Mele
+                    </a>
                 </li>
                 @*<li>
-                        <a href="#"><span class="fa fa-download mr-3 notif"><small class="d-flex align-items-center justify-content-center">5</small></span> Download</a>
-                    </li>*@
+            <a href="#"><span class="fa fa-download mr-3 notif"><small class="d-flex align-items-center justify-content-center">5</small></span> Download</a>
+        </li>*@
                 @if (Request.IsAuthenticated)
                 {
                     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new

@@ -11067,6 +11067,13 @@ button.bg-dark:focus {
     }
 }
 
+.charts-ff {
+    height: 370px;
+    width: 100%;
+    margin-left: 10px
+}
+
+
 .text-monospace {
     font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
 }
@@ -11755,4 +11762,10 @@ a[data-toggle="collapse"] {
 
 .subscribe-form .form-control {
     background: #4897fc;
+}
+
+.charts-ff {
+    height: 370px;
+    width: 100%;
+    margin-left: 10px
 }

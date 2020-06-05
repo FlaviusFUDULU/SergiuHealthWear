@@ -1,0 +1,110 @@
+﻿@model AplicatieSalariati.ViewModels.MedicAndPacientsViewModel
+@{
+    //
+    //Layout = null;
+    ViewBag.Title = "Test Chart";
+}
+@Styles.Render("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+@Styles.Render("~/Content/sidebar-09")
+@Styles.Render("~/Content/sidebar-09/css/style.css")
+@Styles.Render("~/Content/sidebar-09/css/bottstrap")
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+@Scripts.Render("~/bundles/jqueryval")
+
+<div id="chartContainer" style="height: 50%; width: 100%; margin-left: 10px; margin-top:-25px">
+    <script>
+		window.onload = function () {
+
+			var chart = new CanvasJS.Chart("chartContainer", {
+				animationEnabled: true,
+				title: {
+					text: "EKG"
+				},
+				axisY: {
+					includeZero: false
+				},
+				axisX: {
+                    valueFormatString: "YYYY/MMM/DD hh TT"
+				},
+				data: [{
+					type: "splineArea",
+					color: "#ed8e87",
+					lineColor: "black",
+					markerColor: "black",
+					xValueType: "dateTime",
+                    xValueFormatString: "YYYY/MMM/DD hh TT",
+					dataPoints: @Html.Raw(ViewBag.DataPointsEKG)
+			}]
+			});
+			chart.render();
+
+			//chart 2
+			var chart2 = new CanvasJS.Chart("chartContainer2", {
+				theme: "light1",
+				animationEnabled: true,
+				title: {
+					text: "Temperatura"
+				},
+                axisX: {
+                    valueFormatString: "YYYY/MMM/DD hh TT"
+                },
+				axisY: {
+					title: "Umiditate",
+					gridThickness: 1
+				},
+				axisY2: {
+					title: "Temperatura (in °C)",
+					includeZero: false,
+					maximum: 41,
+					minimum: 33,
+					suffix: " °C",
+					gridThickness: 0
+				},
+				toolTip: {
+					shared: true
+				},
+				data: [{
+					type: "rangeSplineArea",
+					xValueFormatString: "YYYY/MM/DD hh TT",
+                    yValueFormatString: "#.0 °C",
+					toolTipContent: "{x}<br><b>Umiditate:</b> {y[0]}<br",
+					xValueType: "dateTime",
+					dataPoints:  @Html.Raw(ViewBag.DataPointsTEMP1)
+		}, {
+					type: "spline",
+					axisYType: "secondary",
+					name: "Temperature",
+					yValueFormatString: "#.0 °C",
+					toolTipContent: "<b>{name}:</b> {y}",
+					xValueType: "dateTime",
+					dataPoints:  @Html.Raw(ViewBag.DataPointsTEMP2)
+		}]
+			});
+			chart2.render();
+		}
+    </script>
+
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</div>
+
+<div id="chartContainer2" style="height: 370px; width: 100%; margin-left:5px; margin-top:10px">
+    <script>
+	//window.onload = function () {
+
+	
+
+	//}
+    </script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</div>
+
+
+
+@Styles.Render("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+@Styles.Render("~/Content/sidebar-09")
+@Styles.Render("~/Content/sidebar-09/css/style.css")
+@Styles.Render("~/Content/sidebar-09/css/bottstrap")
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+@Scripts.Render("~/bundles/jqueryval")

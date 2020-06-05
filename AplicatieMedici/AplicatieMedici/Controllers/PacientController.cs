@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.IO;
@@ -10,8 +11,10 @@ using System.Web;
 using System.Web.Mvc;
 using AplicatieSalariati.Models;
 using AplicatieSalariati.ViewModels;
+using HealthWear.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Newtonsoft.Json;
 
 namespace AplicatieSalariati.Controllers
 {
@@ -24,11 +27,211 @@ namespace AplicatieSalariati.Controllers
 
         public PacientController()
         {
-            
+
+        }
+
+        public ActionResult Test(string id)
+        {
+            List<DataPoint> dataPoints = new List<DataPoint>();
+
+            var epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+
+            Random random = new Random();
+            dataPoints.Add(new DataPoint(((double)(DateTime.UtcNow.AddHours(-12).Subtract(new DateTime(1970, 1, 1))).TotalSeconds) * 1000, random.Next(60, 300)));
+            dataPoints.Add(new DataPoint((double)(DateTime.UtcNow.AddHours(-11).Subtract(new DateTime(1970, 1, 1))).TotalSeconds * 1000, random.Next(60, 300)));
+            dataPoints.Add(new DataPoint((double)(DateTime.UtcNow.AddHours(-10).Subtract(new DateTime(1970, 1, 1))).TotalSeconds * 1000, random.Next(60, 300)));
+            dataPoints.Add(new DataPoint((double)(DateTime.UtcNow.AddHours(-9).Subtract(new DateTime(1970, 1, 1))).TotalSeconds * 1000, random.Next(60, 300)));
+            dataPoints.Add(new DataPoint((double)(DateTime.UtcNow.AddHours(-8).Subtract(new DateTime(1970, 1, 1))).TotalSeconds * 1000, random.Next(60, 300)));
+            dataPoints.Add(new DataPoint((double)(DateTime.UtcNow.AddHours(-7).Subtract(new DateTime(1970, 1, 1))).TotalSeconds * 1000, random.Next(60, 300)));
+            dataPoints.Add(new DataPoint((double)(DateTime.UtcNow.AddHours(-6).Subtract(new DateTime(1970, 1, 1))).TotalSeconds * 1000, random.Next(60, 300)));
+            dataPoints.Add(new DataPoint((double)(DateTime.UtcNow.AddHours(-5).Subtract(new DateTime(1970, 1, 1))).TotalSeconds * 1000, random.Next(60, 300)));
+            dataPoints.Add(new DataPoint((double)(DateTime.UtcNow.AddHours(-4).Subtract(new DateTime(1970, 1, 1))).TotalSeconds * 1000, random.Next(60, 300)));
+            dataPoints.Add(new DataPoint((double)(DateTime.UtcNow.AddHours(-3).Subtract(new DateTime(1970, 1, 1))).TotalSeconds * 1000, random.Next(60, 300)));
+            dataPoints.Add(new DataPoint((double)(DateTime.UtcNow.AddHours(-2).Subtract(new DateTime(1970, 1, 1))).TotalSeconds * 1000, random.Next(60, 300)));
+            dataPoints.Add(new DataPoint((double)(DateTime.UtcNow.AddHours(-1).Subtract(new DateTime(1970, 1, 1))).TotalSeconds * 1000, random.Next(60, 300)));
+
+            ViewBag.DataPointsEKG = JsonConvert.SerializeObject(dataPoints);
+
+            ////Chart 2
+            List<DataPoint2> dataPoints2 = new List<DataPoint2>();
+
+            float val1 = random.Next(72, 88);
+            float val2 = random.Next(72, 88);
+            float val3 = random.Next(72, 88);
+            float val4 = random.Next(72, 88);
+            float val5 = random.Next(72, 88);
+            float val6 = random.Next(72, 88);
+            float val7 = random.Next(72, 88);
+            float val8 = random.Next(72, 88);
+            float val9 = random.Next(72, 88);
+            float val10 = random.Next(72, 88);
+            float val11 = random.Next(72, 88);
+            float val12 = random.Next(72, 88);
+
+            dataPoints2.Add(new DataPoint2(1512441720000, new double[] { val1, val1 }));
+            dataPoints2.Add(new DataPoint2(1512447240000, new double[] { val2, val2 }));
+            dataPoints2.Add(new DataPoint2(1512453960000, new double[] { val3, val3 }));
+            dataPoints2.Add(new DataPoint2(1512461700000, new double[] { val4, val4 }));
+            dataPoints2.Add(new DataPoint2(1512466320000, new double[] { val5, val5 }));
+            dataPoints2.Add(new DataPoint2(1512472020000, new double[] { val6, val6 }));
+            dataPoints2.Add(new DataPoint2(1512475440000, new double[] { val7, val7 }));
+            dataPoints2.Add(new DataPoint2(1512477540000, new double[] { val8, val8 }));
+            dataPoints2.Add(new DataPoint2(1512482280000, new double[] { val9, val9 }));
+            dataPoints2.Add(new DataPoint2(1512486900000, new double[] { val10, val10 }));
+            dataPoints2.Add(new DataPoint2(1512490800000, new double[] { val11, val11 }));
+            dataPoints2.Add(new DataPoint2(1512494160000, new double[] { val12, val12 }));
+
+            ViewBag.DataPointsTEMP1 = JsonConvert.SerializeObject(dataPoints2);
+
+            dataPoints2 = new List<DataPoint2>();
+            dataPoints2.Add(new DataPoint2(1512441720000, random.Next(35, 39)));
+            dataPoints2.Add(new DataPoint2(1512447240000, random.Next(35, 39)));
+            dataPoints2.Add(new DataPoint2(1512453960000, random.Next(35, 39)));
+            dataPoints2.Add(new DataPoint2(1512461700000, random.Next(35, 39)));
+            dataPoints2.Add(new DataPoint2(1512466320000, random.Next(35, 39)));
+            dataPoints2.Add(new DataPoint2(1512472020000, random.Next(35, 39)));
+            dataPoints2.Add(new DataPoint2(1512475440000, random.Next(35, 39)));
+            dataPoints2.Add(new DataPoint2(1512477540000, random.Next(35, 39)));
+            dataPoints2.Add(new DataPoint2(1512482280000, random.Next(35, 39)));
+            dataPoints2.Add(new DataPoint2(1512486900000, random.Next(35, 39)));
+            dataPoints2.Add(new DataPoint2(1512490800000, random.Next(35, 39)));
+            dataPoints2.Add(new DataPoint2(1512494160000, random.Next(35, 39)));
+
+            ViewBag.DataPointsTEMP2 = JsonConvert.SerializeObject(dataPoints2);
+
+            ///end chart 2
+
+            string query = "";
+
+            string guid = User.Identity.GetUserId();
+            Medic medic = db.Medic.Where(_ => _.accountGuid.ToString() == guid).FirstOrDefault();
+            MedicAndPacientsViewModel medicAndPacientsViewModel = new MedicAndPacientsViewModel();
+
+            medicAndPacientsViewModel.Pacienti = db.Pacient.Where(
+                (a => a.Nume.Contains(query)
+                    || a.Prenume.Contains(query))
+                    ).Where(a => a.MedicCNP == medic.CNP).ToList();
+
+            string medicguid = User.Identity.GetUserId();
+
+            medicAndPacientsViewModel.Medic =
+                    db.Medic
+                    .Where(_ => _.accountGuid.ToString() == medicguid)
+                    .SingleOrDefault();
+
+            return View(medicAndPacientsViewModel);
+        }
+
+        public ActionResult MyStats(string id)
+        {
+            List<DataPoint> dataPoints = new List<DataPoint>();
+
+           
+
+            var epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+
+            dataPoints.Add(new DataPoint(((double)(DateTime.UtcNow.AddHours(-12).Subtract(new DateTime(1970, 1, 1))).TotalSeconds) * 1000, 230));
+            dataPoints.Add(new DataPoint((double)(DateTime.UtcNow.AddHours(-11).Subtract(new DateTime(1970, 1, 1))).TotalSeconds * 1000, 234));
+            dataPoints.Add(new DataPoint((double)(DateTime.UtcNow.AddHours(-10).Subtract(new DateTime(1970, 1, 1))).TotalSeconds * 1000, 232));
+            dataPoints.Add(new DataPoint((double)(DateTime.UtcNow.AddHours(-9).Subtract(new DateTime(1970, 1, 1))).TotalSeconds * 1000, 170));
+            dataPoints.Add(new DataPoint((double)(DateTime.UtcNow.AddHours(-8).Subtract(new DateTime(1970, 1, 1))).TotalSeconds * 1000, 70));
+            dataPoints.Add(new DataPoint((double)(DateTime.UtcNow.AddHours(-7).Subtract(new DateTime(1970, 1, 1))).TotalSeconds * 1000, 60));
+            dataPoints.Add(new DataPoint((double)(DateTime.UtcNow.AddHours(-6).Subtract(new DateTime(1970, 1, 1))).TotalSeconds * 1000, 90));
+            dataPoints.Add(new DataPoint((double)(DateTime.UtcNow.AddHours(-5).Subtract(new DateTime(1970, 1, 1))).TotalSeconds * 1000, 120));
+            dataPoints.Add(new DataPoint((double)(DateTime.UtcNow.AddHours(-4).Subtract(new DateTime(1970, 1, 1))).TotalSeconds * 1000, 340));
+            dataPoints.Add(new DataPoint((double)(DateTime.UtcNow.AddHours(-3).Subtract(new DateTime(1970, 1, 1))).TotalSeconds * 1000, 359));
+            dataPoints.Add(new DataPoint((double)(DateTime.UtcNow.AddHours(-2).Subtract(new DateTime(1970, 1, 1))).TotalSeconds * 1000, 240));
+            dataPoints.Add(new DataPoint((double)(DateTime.UtcNow.AddHours(-1).Subtract(new DateTime(1970, 1, 1))).TotalSeconds * 1000, 220));
+
+            ViewBag.DataPointsEKG = JsonConvert.SerializeObject(dataPoints);
+
+            ////Chart 2
+            List<DataPoint2> dataPoints2 = new List<DataPoint2>();
+
+            dataPoints2.Add(new DataPoint2(1512441720000, new double[] { 85.15, 85.15 }));
+            dataPoints2.Add(new DataPoint2(1512447240000, new double[] { 84.70, 84.70 }));
+            dataPoints2.Add(new DataPoint2(1512453960000, new double[] { 84.75, 84.75 }));
+            dataPoints2.Add(new DataPoint2(1512461700000, new double[] { 84.70, 84.70 }));
+            dataPoints2.Add(new DataPoint2(1512466320000, new double[] { 85.15, 85.15 }));
+            dataPoints2.Add(new DataPoint2(1512472020000, new double[] { 84.50, 84.50 }));
+            dataPoints2.Add(new DataPoint2(1512475440000, new double[] { 84.75, 84.75 }));
+            dataPoints2.Add(new DataPoint2(1512477540000, new double[] { 85.15, 85.15 }));
+            dataPoints2.Add(new DataPoint2(1512482280000, new double[] { 84.50, 84.50 }));
+            dataPoints2.Add(new DataPoint2(1512486900000, new double[] { 84.75, 84.75 }));
+            dataPoints2.Add(new DataPoint2(1512490800000, new double[] { 85.15, 85.15 }));
+            dataPoints2.Add(new DataPoint2(1512494160000, new double[] { 84.70, 84.70 }));
+
+            ViewBag.DataPointsTEMP1 = JsonConvert.SerializeObject(dataPoints2);
+
+            dataPoints2 = new List<DataPoint2>();
+            dataPoints2.Add(new DataPoint2(1512441720000, 36.2));
+            dataPoints2.Add(new DataPoint2(1512447240000, 36.5));
+            dataPoints2.Add(new DataPoint2(1512453960000, 36.5));
+            dataPoints2.Add(new DataPoint2(1512461700000, 36.4));
+            dataPoints2.Add(new DataPoint2(1512466320000, 36.7));
+            dataPoints2.Add(new DataPoint2(1512472020000, 36.8));
+            dataPoints2.Add(new DataPoint2(1512475440000, 36.7));
+            dataPoints2.Add(new DataPoint2(1512477540000, 36.9));
+            dataPoints2.Add(new DataPoint2(1512482280000, 37.9));
+            dataPoints2.Add(new DataPoint2(1512486900000, 38.9));
+            dataPoints2.Add(new DataPoint2(1512490800000, 37.2));
+            dataPoints2.Add(new DataPoint2(1512494160000, 37));
+
+            ViewBag.DataPointsTEMP2 = JsonConvert.SerializeObject(dataPoints2);
+
+            ///end chart 2
+
+            MedicAndPacientsViewModel medicAndPacientsViewModel = new MedicAndPacientsViewModel();
+            Medic medic;
+            Pacient pacient = new Pacient();
+            if (id == null)
+            {
+                string guid = User.Identity.GetUserId();
+                pacient = db.Pacient
+                    .Include(_ => _.Istorics)
+                    .Include(_ => _.Programari)
+                    .Where(_ => _.AccountGuid.ToString() == guid)
+                    .FirstOrDefault();
+                medic = db.Medic.Find(pacient.MedicCNP);
+            }
+            else
+            {
+                medic = db.Medic.Find(id);
+            }
+            if (medic == null)
+            {
+                return HttpNotFound();
+            }
+            medicAndPacientsViewModel.Medic = medic;
+            medicAndPacientsViewModel.Pacient = pacient;
+            return View(medicAndPacientsViewModel);
         }
 
         // GET: Salariat
         public ActionResult Index(string message, string type = "Edit", string query = "")
+        {
+            ViewBag.Message = (message == null) ? "" : message;
+            ViewBag.Type = type;
+            string guid = User.Identity.GetUserId();
+            Medic medic = db.Medic.Where(_ => _.accountGuid.ToString() == guid).FirstOrDefault();
+            MedicAndPacientsViewModel medicAndPacientsViewModel = new MedicAndPacientsViewModel();
+
+            medicAndPacientsViewModel.Pacienti = db.Pacient.Where(
+                (a => a.Nume.Contains(query)
+                || a.Prenume.Contains(query))
+                ).Where(a => a.MedicCNP == medic.CNP).ToList();
+
+            string medicguid = User.Identity.GetUserId();
+
+            medicAndPacientsViewModel.Medic =
+                db.Medic
+                .Where(_ => _.accountGuid.ToString() == medicguid)
+                .SingleOrDefault();
+
+            return View(medicAndPacientsViewModel);
+        }
+
+        public ActionResult Stats(string message, string type = "Edit", string query = "")
         {
             ViewBag.Message = (message == null) ? "" : message;
             ViewBag.Type = type;
@@ -126,12 +329,12 @@ namespace AplicatieSalariati.Controllers
                     .Where(_ => _.accountGuid.ToString() == medicguid)
                     .SingleOrDefault();
 
-                medicAndPacientsViewModel.Pacient.MedicCNP = 
+                medicAndPacientsViewModel.Pacient.MedicCNP =
                     medicAndPacientsViewModel.Medic.CNP;
 
-                string newUserguid = createPacientUser(medicAndPacientsViewModel.Pacient.Nume, 
+                string newUserguid = createPacientUser(medicAndPacientsViewModel.Pacient.Nume,
                     medicAndPacientsViewModel.Pacient.Prenume,
-                    medicAndPacientsViewModel.Pacient.Email, 
+                    medicAndPacientsViewModel.Pacient.Email,
                     medicAndPacientsViewModel.Pacient.CNP);
 
                 medicAndPacientsViewModel.Pacient.AccountGuid = Guid.Parse(newUserguid);
@@ -389,7 +592,7 @@ namespace AplicatieSalariati.Controllers
             if (user != null)
             {
                 var result = await userManager.DeleteAsync(user);
-  
+
             }
             return RedirectToAction("Index", new { message = "Pacient șters cu succes din sistem!" });
         }

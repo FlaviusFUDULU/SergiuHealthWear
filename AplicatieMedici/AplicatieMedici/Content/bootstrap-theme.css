@@ -64,6 +64,13 @@
   border-color: #2d6ca2;
 }
 
+.charts-ff {
+    height: 370px;
+    width: 100%;
+    margin-left: 10px
+}
+
+
 .btn-success {
   background-image: -webkit-gradient(linear, left 0%, left 100%, from(#5cb85c), to(#449d44));
   background-image: -webkit-linear-gradient(top, #5cb85c, 0%, #449d44, 100%);
